@@ -10,7 +10,7 @@ nb_etu = int(input("nombre d'étudiants : "));
 nb_places = int(input("nombre de places par salle : "));
 nb_creneaux = nb_salles * nb_cr_quot * 5; # nombre total de créneaux disponibles dans la semaine
 remp_creneaux = []; # remplissage de chaque creneau
-voeux_inscrits = 0; # fonction à maximiser
+score_voeux = 0; # fonction à maximiser
 
 voeux_etu = []; # stocke les voeux générés aléatoirement des étudiants
 
@@ -44,6 +44,7 @@ while (i < nb_etu):
     while (j < 5): # teste la disponibilité par ordre des voeux
         if(remp_creneaux[voeux_etu[i][j]] < np_places):
             remp_creneaux[voeux_etu[i][1]] += 1;
+            score_voeux += 5 - j;
             j = 4;
         j += 1;
     i += 1;
